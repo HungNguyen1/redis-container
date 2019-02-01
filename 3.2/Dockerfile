@@ -29,7 +29,8 @@ LABEL summary="$SUMMARY" \
       name="centos/redis-32-centos7" \
       version="3.2" \
       usage="docker run -d --name redis_database -p 6379:6379 centos/redis-32-centos7" \
-      maintainer="SoftwareCollections.org <sclorg@redhat.com>"
+      maintainer="SoftwareCollections.org <sclorg@redhat.com>" \
+      change="Comment out VOLUME"
 
 EXPOSE 6379
 
