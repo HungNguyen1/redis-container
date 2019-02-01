@@ -37,7 +37,7 @@ EXPOSE 6379
 # Create user for redis that has known UID
 # We need to do this before installing the RPMs which would create user with random UID
 RUN getent group  redis &> /dev/null || groupadd -r redis &> /dev/null && \
-    usermod -l redis -g redis -c 'Redis Server' default &> /dev/null && \
+    usermod -l redis -g redis -a -G root -c 'Redis Server' default &> /dev/null && \
 # Install gettext for envsubst command
 # This image must forever use UID 964 for redis user so our volumes are
 # safe in the future. This should *never* change, the last test is there
@@ -69,7 +69,7 @@ COPY root /
 # script.
 RUN /usr/libexec/container-setup
 
-#VOLUME ["/var/lib/redis/data"]
+VOLUME ["/var/lib/redis/data"]
 
 USER 1001
 
