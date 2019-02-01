@@ -68,7 +68,7 @@ COPY root /
 # script.
 RUN /usr/libexec/container-setup
 
-VOLUME ["/var/lib/redis/data"]
+#VOLUME ["/var/lib/redis/data"]
 
 USER 1001
 
